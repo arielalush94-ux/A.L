@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph / Social Sharing SEO -->
+    <title>APages - דפי נחיתה לעסקים שמביאים תוצאות</title>
+    <meta name="description"
+        content="סוכנות לבניית דפי נחיתה ממירים לאיסוף לידים. תכנון, עיצוב ומערכת אוטומציות לוואטסאפ במקום אחד.">
+    <meta property="og:title" content="APages - דפי נחיתה לעסקים שמביאים תוצאות">
+    <meta property="og:description"
+        content="סוכנות לבניית דפי נחיתה ממירים לאיסוף לידים. תכנון, עיצוב ומערכת אוטומציות לוואטסאפ במקום אחד.">
+    <meta property="og:image" content="https://yourdomain.com/APagesLogo.png">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:type" content="website">
+
+    <!-- Meta Pixel Code (Placeholder) -->
+    <!-- <script>...pixel code...</script> -->
+
+    <!-- Google Tag Manager (Placeholder) -->
+    <!-- <script>...gtm code...</script> -->
+
+    <!-- // English: Load Google Fonts - Rubik for best Hebrew support -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top">
+    <!-- // English: Main Navigation Bar - Simplified for conversions (Anti-Design trend) -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <a href="#top" style="display: block;">
+                    <img src="APagesLogo.png" alt="APages Logo" class="logo-img">
+                </a>
+            </div>
+
+            <!-- הוסרה תפריט ההמבורגר במובייל למניעת הסחות דעת, נשאר רק כפתור הנעה לפעולה -->
+            <nav class="nav-links">
+                <a href="#contact" class="btn-primary" style="display: flex; align-items: center; gap: 6px;">
+                    השאירו פרטים
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        viewBox="0 0 16 16" style="margin-top: 2px;">
+                        <path fill-rule="evenodd"
+                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                    </svg>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- // English: Hero Section - The top part of the landing page -->
+        <section class="hero">
+            <div class="hero-bg-logo" style="background-image: url('APagesLogo.png');"></div>
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>דף נחיתה ממיר. מהאפיון והעיצוב עד <span class="text-highlight">ללקוח שמשאיר פרטים.</span></h1>
+                    <p>מאפיון שיווקי ועיצוב מוקפד, ועד למערכת חכמה ששולחת את הלקוחות ישר לוואטסאפ שלך. התשתית שחסרה לעסק
+                        שלך כדי לגדול.</p>
+                    <div class="trust-signals">
+                        <div class="stars"></div>
+                        <span>נבדק. הוכח. ממיר עסקאות ללקוחות שלנו.</span>
+                    </div>
+                </div>
+                <!-- // English: Visual mock element based on Glassmorphism -->
+                <div class="hero-visual">
+                    <div class="glass-card mockup">
+                        <div class="mockup-header">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <form id="heroForm" class="mockup-body mockup-real-content">
+                            <h3 class="mockup-real-title">השאר פרטים</h3>
+                            <p class="mockup-real-text">ונחזור אליך בהקדם!</p>
+                            <input type="text" id="heroFullName" name="fullName" required placeholder="שם מלא"
+                                class="mockup-input">
+                            <input type="tel" id="heroPhone" name="phone" required placeholder="טלפון"
+                                class="mockup-input" pattern="[0-9]{9,10}">
+                            <button type="submit" class="btn-primary w-full" id="heroSubmitBtn">
+                                <span>שליחה</span>
+                                <div class="loader hidden"
+                                    style="display:inline-block; vertical-align:middle; width:16px; height:16px; margin-right:8px; border-width:2px;">
+                                </div>
+                            </button>
+                            <div id="heroFormMessage" class="form-message hidden"
+                                style="font-size: 0.9rem; margin-top: 12px;"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- // English: Problem & Solution Section -->
+        <section id="solution" class="solution section-padding bg-light">
+            <div class="container text-center">
+                <h2 class="section-title">מושכים עוקבים לאינסטגרם אבל הם לא <span class="text-highlight">הופכים
+                        ללקוחות?</span>
+                </h2>
+                <p class="section-subtitle">להעלות סטורי זה חשוב, אבל בלי "בית דיגיטלי" מסודר שמקבל את הגולש בצורה
+                    יוקרתית – הרבה כסף נשאר על השולחן. אני בונה עבורך דף שסוגר מעגל.</p>
+                <div class="grid-cards">
+                    <div class="card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg></div>
+                        <h3>אדריכלות דיגיטלית יוקרתית</h3>
+                        <p>נראות מדויקת שאני מעצב מכל הלב עבור העסק שלך, כדי לשדר סמכות ואמינות כבר מהשנייה הראשונה
+                            שהלקוח נוחת בדף.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
+                            </svg></div>
+                        <h3>מהירות טעינה שלא נתקלת בה</h3>
+                        <p>הדף שלך נבנה בקוד נקי, ללא תבניות כבדות. התוצאה? זמן טעינה של פחות משנייה – כי כל שנייה
+                            של המתנה זה לקוח שסגר את הטאב ונעלם.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="16" x="2" y="4" rx="2" />
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            </svg></div>
+                        <h3>הלקוח נכנס - אתה מקבל הודעה</h3>
+                        <p>ברגע שלקוח משאיר פרטים, נשלחת אליך התראת וואטסאפ מיידית, כדי שתוכל לחזור אליו כשהוא עדיין
+                            חושב עליך ופנוי לקנות.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- // English: Process Section - How it Works (New) -->
+        <section id="process" class="process section-padding">
+            <div class="container text-center">
+                <span class="badge">הדרך שלך לדף באוויר</span>
+                <h2 class="section-title">איך זה עובד? ב-<span class="text-highlight">3 שלבים פשוטים.</span></h2>
+                <p class="section-subtitle">בלי כאבי ראש טכניים, הכל עליי - משלב הרעיון ועד שהדפים מביאים עסקאות.</p>
+
+                <div class="process-steps">
+                    <div class="step-card glass-card">
+                        <div class="step-number">1</div>
+                        <h3>שיחת אפיון שיווקית</h3>
+                        <p>נכיר את העסק שלך לעומק, נחקור מי קהל היעד בדיוק, ונגדיר יחד מה המסר שחשוב להעביר כדי לגרום
+                            להם לקנות.</p>
+                    </div>
+                    <div class="step-card glass-card">
+                        <div class="step-number">2</div>
+                        <h3>אדריכלות ועיצוב</h3>
+                        <p>אני ניגש לעבודה: מעצב, בונה את המנגנון הטכני, ומחבר את כל ההמרות, האנליטיקות (Pixel)
+                            והאוטומציות מאחורי הקלעים.</p>
+                    </div>
+                    <div class="step-card glass-card">
+                        <div class="step-number">3</div>
+                        <h3>עלייה משותפת לאוויר</h3>
+                        <p>אחרי אישור שלך על העיצוב (ובדיקה שהכל עובד כמו שעון), אנחנו מרימים את הדף לאוויר, ואתה מתחיל
+                            לקבל טלפונים והודעות מלקוחות רלוונטיים.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- // English: WhatsApp Automation Highlight Section -->
+        <section id="automation" class="automation-feature section-padding">
+            <div class="container">
+                <div class="automation-wrapper glass-card">
+                    <div class="automation-text">
+                        <span class="badge">לא רק יפה - מנגנון עובד</span>
+                        <h2>להביא לידים זה קל. <br><span class="text-highlight">לתפוס ולנהל אותם - זה הסוד.</span>
+                        </h2>
+                        <p>בלי לידים שהולכים לאיבוד בין ההודעות. כל דף נחיתה שאני בונה מגיע מחובר למערכות המעקב בהתאמה
+                            אישית לאיך שנוח לכם לעבוד:</p>
+                    </div>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" />
+                                    <path d="M3 9h18" />
+                                    <path d="M3 15h18" />
+                                    <path d="M9 3v18" />
+                                    <path d="M15 3v18" />
+                                </svg></span>
+                            <div>
+                                <h3>ניהול חכם ב-Google Sheets</h3>
+                                <p>הכל נשאב אוטומטית לטבלה. אוסיף לכם <b>עמודת תגיות סטטוס</b> (ליד חדש / נסגר) כדי
+                                    שתנהלו לקוחות בחינם בלי CRM מורכב.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
+                                </svg></span>
+                            <div>
+                                <h3>התראת WhatsApp קופצת</h3>
+                                <p>ברגע שמישהו לחץ "שלח", תקבלו הודעה לנייד. חזרה מהירה ללקוח משלשת את סיכויי
+                                    הסגירה.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                </svg></span>
+                            <div>
+                                <h3>כפתור וואטסאפ לשיחה חיה</h3>
+                                <p>לקוחות "חמים" שלא אוהבים טפסים יוכלו לפתוח מולכם צ'אט חי בקליק אחד דרך כפתור מרחף
+                                    בדף.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                </svg></span>
+                            <div>
+                                <h3>התראת ליד מסודרת למייל</h3>
+                                <p>מעדיפים להפריד? קבלו התראה מיידית עם כל פרטי הליד ישירות לתיבת המייל הייעודית של
+                                    העסק.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="automation-visual">
+                        <div class="whatsapp-mockup">
+                            <div class="wa-header">
+                                <div class="wa-avatar" style="background: none;">
+                                    <img src="APagesLogo.png" alt="APages Logo"
+                                        style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;">
+                                </div>
+                                <div class="wa-title">מערכת APages <span>✓</span></div>
+                            </div>
+                            <div class="wa-body">
+                                <div class="wa-message">
+                                    <div class="wa-msg-title"> ליד חדש מדף הנחיתה של APages!</div>
+                                    <div class="wa-msg-text">
+                                        <strong>שם מלא:</strong> ישראל לקוח<br>
+                                        <strong>טלפון:</strong> 050-1234567<br>
+                                        <strong>מייל:</strong> Example@gmail.com<br>
+                                    </div>
+                                    <div class="wa-msg-time">14:32</div>
+                                </div>
+                            </div>
+                            <div class="wa-footer">
+                                <span class="wa-input-mock">הקלד הודעה...</span>
+                                <div class="wa-mic">🎤</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- // English: Case Study Section (LA-Nails) -->
+        <section id="case-study" class="case-study section-padding">
+            <div class="container">
+                <div class="case-study-grid">
+                    <div class="case-study-content">
+                        <span class="badge">דף שבנינו לאקדמיה ללק ג'ל ובניית ציפורניים</span>
+                        <h2>LA-NailsAcademy :<br><span class="text-highlight">מנגנון שעובד סביב השעון.</span>
+                        </h2>
+                        <p><strong>האתגר:</strong> אינסטגרם מהמם עם עוקבות, אבל הקריאה לפעולה הייתה "שלחו הודעה" – והרבה
+                            התפספסו.</p>
+                        <p><strong>הפתרון:</strong> אפיון ועיצוב דף נחיתה יוקרתי ויצירת
+                            מנגנון אוטומטי מלא. כל לקוחה שמשאירה פרטים נכנסת מיד לטבלת מסודרת, והבעלים מקבל התראת
+                            וואטסאפ חיה לטלפון!</p>
+                        <p><strong>התוצאה:</strong> אין יותר לידים שהולכים לאיבוד, ואחוזי הסגירה עלו בזכות החזרה המהירה
+                            לכל מתעניינת.</p>
+                        <a href="#contact" class="btn-outline">בואו נייצר דף דומה לעסק שלכם</a>
+                    </div>
+                    <div class="case-study-visual glass-card">
+                        <!-- Placeholder for Mockup to be styled in CSS -->
+                        <div class="phone-mockup">
+                            <div class="screen">
+                                <video id="laNailsVideo" class="mock-video" src="LA-NailsMockup.mp4" muted playsinline
+                                    autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- // English: About Me (Ariel's Story) -->
+        <section id="about" class="about section-padding bg-light">
+            <div class="container">
+                <div class="about-grid">
+
+                    <div class="about-text">
+                        <h2>קוסמטיקה פוגשת <span class="text-highlight">הנדסה דיגיטלית.</span></h2>
+                        <p class="intro-p">נעים מאוד, אני <strong>אריאל</strong> – ועד לא מזמן, העבודה העיקרית שלי הייתה
+                            לוודא שבניינים עומדים יציב.</p>
+                        <p>כהנדסאי בניין ומנהל פרויקטים בשנים האחרונות, התרגלתי לעבוד בסביבה שבה אין מקום לטעויות,
+                            יסודות חייבים להיות חזקים, ודד-ליין הוא דד-ליין.</p>
+                        <p>כשהתחלתי לעצב ולבנות דפי נחיתה, גיליתי שהעקרונות הם בדיוק אותם עקרונות. דף נחיתה לא יכול
+                            להישען רק על עיצוב יפה (הקוסמטיקה), הוא חייב <strong>תשתית טכנית חזקה, מהירות שיא ואפס
+                                תקלות.</strong></p>
+                        <p>ב-APages אני מביאה את השילוב של שני העולמות: נראות מדויקת מכל הלב, ואוטומציות חכמות שחוסכות
+                            לכם זמן. <strong>אני כאן כדי לנהל את הפרויקט הדיגיטלי שלכם מ-א' ועד ת', ולתת לכם ראש
+                                שקט שאתם בידיים דיגיטליות טובות.</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- // English: FAQ Section (New) -->
+        <section id="faq" class="faq section-padding">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title">שאלות שכנראה <span class="text-highlight">רצית לשאול:</span></h2>
+                    <p class="section-subtitle">כל מה שצריך לדעת לפני שיוצאים לדרך.</p>
+                </div>
+
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>אין לי דומיין (כתובת לאתר) או אחסון, מה עושים?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>אל דאגה! כחלק מהתהליך, אני אלווה אותך צעד-אחר-צעד ברכישת הדומיין והאחסון (זה עולה כמה
+                                עשרות שקלים בודדים). הכל יהיה רשום על שמך ובבעלותך המלאה כדי לחסוך ממך את הכאב ראש הטכני
+                                והבירוקטי.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>כמה זמן עד שהדף שלי יהיה באוויר?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>מרגע שיחת האפיון והעברת החומרים (תמונות וטקסטים אם יש), זמן העבודה הממוצע הוא בין 5 ל-7
+                                ימי עסקים עד שהדף מוגמר, מעוצב, מחובר למערכות המעקב, ועובר לאישור סופי שלך לפני ההפצה
+                                ללקוחות.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>אני חייב/ת לדעת משהו טכנולוגי?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>ממש לא. כל המטרה של הסוכנות שלי היא לקחת ממך את נטל ה"טכנולוגיה". את/ה רק צריך להגיד לי
+                                מי הלקוח שלך ומה את/ה מוכר, ואני אדאג לכל השאר - מהעיצוב ועד שלקוחות ינחתו לך ישירות
+                                בוואטסאפ.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>למה להשקיע בדף מקצועי אם יש "בוני אתרים" חינמיים ברשת?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>בניית אתר במערכות חינמיות יוצרת לרוב דפים עמוסים, אטיים במובייל מרובי תבניות ועם עיצוב
+                                גנרי שלא בולט. כשאנו בונים תשתית עצמאית מותאמת אישית - דף הנחיתה מהיר פי כמה, נראה
+                                כפרימיום ומסוגל להמיר תנועה יקרה ללקוחות משלמים הרבה יותר טוב.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>מה קורה אחרי שדף הנחיתה מוכן? אני נשאר לבד?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>ממש לא. לאחר העלייה לאוויר אתם מקבלים סביבה מוגדרת ועובדת, פלוס הדרכה בסיסית על איך
+                                המערכת עובדת מאחורי הקלעים (כמו איך עובדת אוטומציית הוואטסאפ). תמיד תוכלו לדבר איתי
+                                לשינויים או עדכונים נוספים בתשלום סמלי או כחלק מריטיינר.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>יש לי כבר עוקבים באינסטגרם, בשביל מה אני צריך דף נחיתה?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>אינסטגרם מעולה לחשיפה, אבל דף נחיתה זה ה"משרד הדיגיטלי" שלכם. זה המקום שבו גולש (שדעתו
+                                מוסחת בקלות) הופך לליד מסודר בטופס, מקבל מידע מלא, ונכנס אוטומטית לוואטסאפ שלכם. זה
+                                ההבדל בין עסק חובבני למקצועי.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- // English: Contact Form Section -->
+        <section id="contact" class="contact section-padding">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-text">
+                        <h2>מוכנים להזניק את הפרויקט <span class="text-highlight">הדיגיטלי שלכם?</span></h2>
+                    </div>
+                    <div class="contact-form-container glass-card mockup">
+                        <div class="mockup-header">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <!-- // English: Lead Form that triggers AJAX request -->
+                        <form id="leadForm" class="lead-form mockup-body mockup-real-content">
+                            <p class="mockup-real-text">בואו נדבר - השאירו פרטים ונבנה תשתית שנסגרת בעסקה.</p>
+                            <div class="form-group">
+                                <input type="text" id="fullName" name="fullName" required placeholder="שם מלא"
+                                    class="mockup-input">
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="phone" name="phone" required placeholder="טלפון"
+                                    class="mockup-input" pattern="[0-9]{9,10}">
+                            </div>
+                            <button type="submit" class="btn-primary w-full" id="submitBtn">
+                                <span>שליחה - בואו נתחיל</span>
+                                <div class="loader hidden"
+                                    style="display:inline-block; vertical-align:middle; width:16px; height:16px; margin-right:8px; border-width:2px;">
+                                </div>
+                            </button>
+                            <div id="formMessage" class="form-message hidden"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- // English: Footer Area -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content text-center">
+                <img src="APagesLogo.png" alt="APages Logo" class="footer-logo">
+                <p>&copy; 2026 APages. כל הזכויות שמורות.</p>
+                <!-- // English: Legal links for Modals -->
+                <div class="footer-legal">
+                    <a href="#" class="legal-trigger" data-modal="privacy">מדיניות פרטיות</a>
+                    <span>|</span>
+                    <a href="#" class="legal-trigger" data-modal="accessibility">הצהרת נגישות</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== LEGAL MODALS ========== -->
+    <div id="legalModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="modalBody" class="modal-body">
+                <!-- Content will be injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- // English: Accessibility Widget -->
+    <div id="accessibilityWidget" class="accessibility-widget">
+        <button id="accessibilityBtn" class="accessibility-btn" aria-label="תפריט נגישות">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="16" cy="4" r="1"></circle>
+                <path d="m18 19 1-7-6 1"></path>
+                <path d="m5 8 3-3 5.5 3-2.36 3.5"></path>
+                <path d="M4.24 14.5a5 5 0 0 0 6.88 6"></path>
+                <path d="M13.76 17.5a5 5 0 0 0-6.88-6"></path>
+            </svg>
+        </button>
+        <div id="accessibilityMenu" class="accessibility-menu">
+            <div class="accessibility-header">
+                <h3>תפריט נגישות</h3>
+                <button id="closeAccessibility" class="close-menu">&times;</button>
+            </div>
+            <div class="accessibility-options">
+                <button class="acc-opt" data-action="contrast">🌓 ניגודיות גבוהה</button>
+                <button class="acc-opt" data-action="grayscale">🏁 גווני אפור</button>
+                <button class="acc-opt" data-action="increase-text">➕ הגדלת טקסט</button>
+                <button class="acc-opt" data-action="decrease-text">➖ הקטנת טקסט</button>
+                <button class="acc-opt" data-action="highlight-links">🔗 הדגשת קישורים</button>
+                <button class="acc-opt reset-btn" data-action="reset">🔄 איפוס הגדרות</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- // English: Dynamic WhatsApp Floating CTA -->
+    <a href="https://wa.me/972546276683?text=היי%20אריאל,%20הגעתי%20מדף%20הנחיתה,%20אשמח%20לשמוע%20פרטים"
+        id="floatingCTA" class="floating-cta whatsapp-float" target="_blank" rel="noopener">
+        <span>לשליחת הודעה</span>
+        <!-- SVG WhatsApp Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+        </svg>
+    </a>
+
+    <!-- Legal Content Templates -->
+    <template id="privacy-content">
+        <h2>מדיניות פרטיות</h2>
+        <p>אנו ב-APages מכבדים את הפרטיות שלך. המידע שאתה משאיר באתר (שם וטלפון) משמש אך ורק ליצירת קשר בנוגע לדפי
+            הנחיתה ולשליחת תכנים שיווקיים והטבות, בהתאם לאישורך.</p>
+        <p>המידע נשמר במערכת מאובטחת ואינו מועבר לצדדים שלישיים ללא הסכמתך. ניתן לבקש את הסרת המידע מהמאגר בכל עת
+            באמצעות פנייה אלינו.</p>
+        <p><strong>שימוש בעוגיות (Cookies):</strong> אתר זה אינו משתמש בעוגיות לצורך מעקב או איסוף מידע אישי על הגולשים.
+        </p>
+    </template>
+
+    <template id="accessibility-content">
+        <h2>הצהרת נגישות</h2>
+        <p>אנו רואים חשיבות רבה במתן שירות שוויוני לכלל הגולשות והגולשים. אתר זה הונגש בהתאם לתקנות שוויון זכויות לאנשים
+            עם מוגבלות (תקן ישראלי 5568 ברמת AA).</p>
+        <ul>
+            <li><strong>סרגל נגישות פעיל:</strong> הוטמע רכיב עזר המאפשר הגדלת טקסט, שינוי ניגודיות (מצב כהה), מצב גווני
+                אפור והדגשת קישורים.</li>
+            <li>האתר מותאם לצפייה בדפדפנים מודרניים ובמכשירים ניידים.</li>
+            <li>בוצעו התאמות טכניות לשיפור הניווט עבור קוראי מסך.</li>
+        </ul>
+        <p>נתקלת בבעיית נגישות? ספר לנו ונשמח לתקן:<br>
+            אימייל: <a href="mailto:info@apages.co.il">info@apages.co.il</a>
+        </p>
+    </template>
+
+    <!-- // English: Main Javascript script inclusion -->
+    <script src="script.js"></script>
+</body>
+
+</html>
