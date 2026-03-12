@@ -431,15 +431,15 @@ img { max-width: 100%; height: auto; display: block; }
         --nav-height: 55px;
     }
     .hero {
-        padding-top: 80px; /* Increased space from top header as requested */
+        padding-top: 60px; /* Reduced from 80px to pull everything up */
         height: 100dvh;
         max-height: 100dvh;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; /* Move content towards the top */
+        justify-content: flex-start; /* Ensure it stays towards the top */
     }
     .hero-logo-wrapper {
-        margin-top: 0; /* Reset negative margin for natural spacing */
+        margin-top: -15px; /* Pull the logo specifically up towards the navbar */
     }
     .hero-logo {
         max-height: 140px; /* ENLARGED further to 140px */
