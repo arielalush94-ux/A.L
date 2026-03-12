@@ -175,6 +175,7 @@ img { max-width: 100%; height: auto; display: block; }
     display: flex;
     justify-content: center;
     width: 100%;
+    margin-top: -20px; /* Pulled up slightly for more space below */
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); /* Essential for smooth animation */
 }
 
@@ -438,7 +439,7 @@ img { max-width: 100%; height: auto; display: block; }
         justify-content: center; /* Center content vertically in the available space */
     }
     .hero-logo-wrapper {
-        margin-top: -25px; /* Pulled up higher as requested */
+        margin-top: -45px; /* Pulled up even higher for mobile spacing */
     }
     .hero-logo {
         max-height: 140px; /* ENLARGED further to 140px */
