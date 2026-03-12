@@ -1380,5 +1380,6 @@ html.highlight-links a {
     }
     .footer-logo {
         height: 80px; /* ENLARGED for mobile as requested */
+        margin-top: -15px; /* Moved higher in mobile as requested */
     }
 }
