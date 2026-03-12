@@ -444,7 +444,7 @@ img { max-width: 100%; height: auto; display: block; }
     .hero-logo {
         max-height: 140px; /* ENLARGED further to 140px */
         margin-top: 5px; 
-        margin-bottom: 5px; 
+        margin-bottom: 25px; /* Increased from 5px for better spacing from text */
         filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4)); /* Permanent subtle glow */
     }
     .hero-title {
@@ -459,6 +459,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .hero-logo {
+    margin-bottom: 30px; /* Added margin below logo for desktop spacing */
     filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.3)); /* Base glow always visible */
     transition: var(--transition);
 }
