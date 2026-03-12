@@ -439,7 +439,7 @@ img { max-width: 100%; height: auto; display: block; }
         justify-content: center; /* Center content vertically in the available space */
     }
     .hero-logo-wrapper {
-        margin-top: -45px; /* Pulled up even higher for mobile spacing */
+        margin-top: -15px; /* Lowered from -45px to add space from header as requested */
     }
     .hero-logo {
         max-height: 140px; /* ENLARGED further to 140px */
