@@ -157,11 +157,7 @@ img { max-width: 100%; height: auto; display: block; }
     height: 55px; /* Reduced from 70px for Desktop */
     max-width: 220px;
     object-fit: contain;
-    background-color: #f7f7f7; /* White badge background matched to logo */
-    padding: 5px 10px; /* Slimmer inner spacing */
-    border-radius: 10px; /* Slightly tighter corners */
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
 }
 
 /* Global rules for the mini logo in the sticky header */
