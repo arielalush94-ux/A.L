@@ -438,10 +438,10 @@ img { max-width: 100%; height: auto; display: block; }
         justify-content: center; /* Center content vertically in the available space */
     }
     .hero-logo-wrapper {
-        margin-top: -10px; /* Pull up further */
+        margin-top: -25px; /* Pulled up higher as requested */
     }
     .hero-logo {
-        max-height: 120px; /* ENLARGED as requested */
+        max-height: 140px; /* ENLARGED further to 140px */
         margin-top: 5px; 
         margin-bottom: 5px; 
         filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4)); /* Permanent subtle glow */
