@@ -430,29 +430,34 @@ img { max-width: 100%; height: auto; display: block; }
 /* Allow hero logo on mobile for the animation effect, but smaller */
 @media (max-width: 768px) {
     .navbar {
-        height: 60px; /* Even slimmer to pull logo up */
+        height: 55px; /* Even slimmer */
     }
     :root {
-        --nav-height: 60px;
+        --nav-height: 55px;
     }
     .hero {
-        padding-top: 60px; 
+        padding-top: 55px; 
         height: 100dvh;
         max-height: 100dvh;
-        overflow: hidden; /* Lock the view */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center content vertically in the available space */
+    }
+    .hero-logo-wrapper {
+        margin-top: -10px; /* Pull up further */
     }
     .hero-logo {
-        max-height: 90px; /* Slightly smaller */
-        margin-top: 5px; 
+        max-height: 120px; /* Larger as requested */
         margin-bottom: 5px; 
     }
     .hero-title {
-        font-size: 1.7rem; 
+        font-size: 1.6rem; 
         line-height: 1.1;
+        margin-bottom: 8px;
     }
     .hero-subtitle {
-        font-size: 1rem;
-        margin-bottom: 15px;
+        font-size: 0.95rem;
+        margin-bottom: 12px;
     }
 }
 
