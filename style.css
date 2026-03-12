@@ -175,7 +175,7 @@ img { max-width: 100%; height: auto; display: block; }
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 10px; /* Lowered for desktop as requested */
+    margin-top: 25px; /* Lowered further per request */
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); /* Essential for smooth animation */
 }
 
@@ -459,7 +459,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .hero-logo {
-    margin-bottom: 30px; /* Added margin below logo for desktop spacing */
+    margin-bottom: 15px; /* Reduced to compensate for margin-top increase, keeping text fixed */
     filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.3)); /* Base glow always visible */
     transition: var(--transition);
 }
