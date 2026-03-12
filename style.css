@@ -1360,11 +1360,13 @@ html.highlight-links a {
     color: #000000 !important;
 }
 
-.header-logo {
+.header-logo, .footer-logo {
     height: 60px;
     width: auto;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
     transition: var(--transition);
+    background: transparent !important; /* Ensure no background */
+    padding: 0 !important; /* Ensure no padding */
 }
 
 .header-logo:hover, .footer-logo:hover {
