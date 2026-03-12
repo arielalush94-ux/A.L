@@ -168,9 +168,7 @@ img { max-width: 100%; height: auto; display: block; }
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.scrolled .header-logo {
-    transform: none; /* Removed scale(0.9) to prevent double-shrinking */
-}
+/* Removed scrolled .header-logo to keep it static */
 
 /* Hero logo wrapper & scroll effect */
 .hero-logo-wrapper {
@@ -1374,9 +1372,7 @@ html.highlight-links a {
     transform: translateY(-2px);
 }
 
-.scrolled .header-logo {
-    height: 55px; /* Increased from 50px for better visibility */
-}
+/* Removed scrolled .header-logo height change */
 
 @media (max-width: 768px) {
     .header-logo {
