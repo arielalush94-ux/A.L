@@ -1380,6 +1380,10 @@ html.highlight-links a {
     }
     .footer-logo {
         height: 80px; /* ENLARGED for mobile as requested */
-        margin-top: -15px; /* Moved higher in mobile as requested */
+        margin-top: -25px; /* Moved higher in mobile as requested */
+        margin-bottom: 20px; /* Spaced from text below as requested */
+        display: block; /* Ensure margins apply correctly */
+        margin-left: auto;
+        margin-right: auto;
     }
 }
