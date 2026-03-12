@@ -169,7 +169,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .scrolled .header-logo {
-    transform: scale(0.9) translateY(0); /* Shrink elegantly on scroll */
+    transform: none; /* Removed scale(0.9) to prevent double-shrinking */
 }
 
 /* Hero logo wrapper & scroll effect */
@@ -446,6 +446,7 @@ img { max-width: 100%; height: auto; display: block; }
         max-height: 120px; /* ENLARGED as requested */
         margin-top: 5px; 
         margin-bottom: 5px; 
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4)); /* Permanent subtle glow */
     }
     .hero-title {
         font-size: 1.6rem; 
@@ -458,9 +459,13 @@ img { max-width: 100%; height: auto; display: block; }
     }
 }
 
+.hero-logo {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.3)); /* Base glow always visible */
+    transition: var(--transition);
+}
+
 .hero-logo:hover {
-    transform: translateY(-5px);
-    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.4)) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5)); /* Slightly stronger on hover, no movement */
 }
 
 .accessibility-menu.show {
@@ -1370,11 +1375,11 @@ html.highlight-links a {
 }
 
 .scrolled .header-logo {
-    height: 50px;
+    height: 55px; /* Increased from 50px for better visibility */
 }
 
 @media (max-width: 768px) {
     .header-logo {
-        height: 45px;
+        height: 40px; /* Reduced from 45px to free space for call button */
     }
 }
