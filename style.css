@@ -1365,14 +1365,14 @@ html.highlight-links a {
 .header-logo, .footer-logo {
     height: 60px;
     width: auto;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
     transition: var(--transition);
     background: transparent !important; /* Ensure no background */
     padding: 0 !important; /* Ensure no padding */
+    filter: none !important; /* Removed shadow to prevent square/box artifacts */
 }
 
 .header-logo:hover, .footer-logo:hover {
-    filter: drop-shadow(0 0 10px rgba(0, 107, 255, 0.6));
+    filter: drop-shadow(0 0 10px rgba(0, 107, 255, 0.4)) !important; /* Subtle glow only on hover */
     transform: translateY(-2px);
 }
 
@@ -1381,5 +1381,8 @@ html.highlight-links a {
 @media (max-width: 768px) {
     .header-logo {
         height: 40px; /* Reduced from 45px to free space for call button */
+    }
+    .footer-logo {
+        height: 80px; /* ENLARGED for mobile as requested */
     }
 }
