@@ -418,10 +418,7 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-logo {
     max-height: 120px; /* Reduced from 140px to ensure Hero fits screen */
     margin: 15px auto 8px auto; /* Further reduced margins for tighter layout */
-    background-color: #f7f7f7; /* Large badge matched to logo background */
-    padding: 8px 16px; /* Reduced padding */
-    border-radius: 16px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     z-index: 10;
