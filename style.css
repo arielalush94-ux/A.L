@@ -447,7 +447,8 @@ img { max-width: 100%; height: auto; display: block; }
         margin-top: -10px; /* Pull up further */
     }
     .hero-logo {
-        max-height: 120px; /* Larger as requested */
+        max-height: 120px; /* ENLARGED as requested */
+        margin-top: 5px; 
         margin-bottom: 5px; 
     }
     .hero-title {
@@ -1368,7 +1369,7 @@ html.highlight-links a {
 }
 
 .header-logo:hover, .footer-logo:hover {
-    filter: drop-shadow(0 0 8px rgba(74, 111, 255, 0.8));
+    filter: drop-shadow(0 0 10px rgba(0, 107, 255, 0.6));
     transform: translateY(-2px);
 }
 
