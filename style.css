@@ -175,7 +175,7 @@ img { max-width: 100%; height: auto; display: block; }
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: -20px; /* Pulled up slightly for more space below */
+    margin-top: 10px; /* Lowered for desktop as requested */
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); /* Essential for smooth animation */
 }
 
