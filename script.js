@@ -191,4 +191,32 @@ document.addEventListener('DOMContentLoaded', () => {
         revealElements.forEach(el => el.classList.add('active'));
     }
 
+    // FAQ Accordion - Premium
+    document.querySelectorAll('.faq-trigger-premium').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const item = trigger.parentElement;
+            const panel = trigger.nextElementSibling;
+            
+            // Toggle active class on item
+            const isActive = item.classList.toggle('active');
+            
+            // Adjust panel height for smooth transition
+            if (isActive) {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            } else {
+                panel.style.maxHeight = null;
+            }
+
+            // Close other open items (Optional, for better UX)
+            document.querySelectorAll('.faq-item-premium').forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    if (otherItem.querySelector('.faq-panel-premium')) {
+                        otherItem.querySelector('.faq-panel-premium').style.maxHeight = null;
+                    }
+                }
+            });
+        });
+    });
+
 });
