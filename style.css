@@ -1735,3 +1735,100 @@ html.highlight-links a {
         height: 220px;
     }
 }
+
+/* =========================================
+   CRO Boosters - אלמנטים מיוחדים להמרה
+========================================= */
+
+/* 1. אנימציית "זמין כעת" (נקודה ירוקה פועמת) */
+.live-indicator {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(0, 200, 83, 0.15);
+    border: 1px solid rgba(0, 200, 83, 0.3);
+    padding: 6px 16px;
+    border-radius: 30px;
+    margin: 15px auto;
+}
+
+.live-text {
+    color: #00e676; /* ירוק חי ובולט */
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.pulse-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #00e676;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7);
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 230, 118, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 230, 118, 0); }
+}
+
+/* 2. תג מילואים (גוון זית יוקרתי) */
+.badge-reserve {
+    background: linear-gradient(135deg, #4b5320 0%, #2e3314 100%) !important;
+    color: #ffffff !important;
+    border: 1px solid #737c35 !important;
+    box-shadow: 0 4px 10px rgba(75, 83, 32, 0.3);
+}
+
+/* 3. כרטיסיית הפנים של העסק (אלון) */
+.human-card {
+    background: linear-gradient(to bottom, #ffffff, #f4f7f6);
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+/* פס עיטור דק למעלה בגוון זית/צבאי עדין */
+.human-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #4b5320, #737c35);
+}
+
+.human-img-wrapper {
+    margin: 20px auto;
+}
+
+.human-img-wrapper img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.human-card:hover .human-img-wrapper img {
+    transform: scale(1.05);
+}
+
+.human-content h3 {
+    color: #1a202c;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.human-content p {
+    color: #4a5568;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
