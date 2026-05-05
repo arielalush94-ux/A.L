@@ -349,6 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (galleryItems) {
         galleryItems.forEach(item => {
             item.addEventListener('click', () => {
+                if (window.innerWidth <= 768) return; // Disable on mobile
                 const index = parseInt(item.getAttribute('data-index'));
                 if (!isNaN(index)) openLightbox(index);
             });
@@ -356,6 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Accessibility for keyboard
             item.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
+                    if (window.innerWidth <= 768) return; // Disable on mobile
                     e.preventDefault();
                     const index = parseInt(item.getAttribute('data-index'));
                     if (!isNaN(index)) openLightbox(index);

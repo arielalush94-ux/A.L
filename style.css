@@ -1155,6 +1155,16 @@ html.highlight-links a {
         width: 100%;
         object-fit: contain; /* Prevent distortion, fit inside max-height */
     }
+
+    /* Disable Gallery Lightbox effects on mobile */
+    .gallery-item img {
+        cursor: default !important;
+    }
+    .gallery-item:hover img {
+        transform: none !important;
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5) !important;
+        border-color: rgba(255,255,255,0.05) !important;
+    }
 }
 
 /* Remove Carousel specific styles as they are no longer needed */
