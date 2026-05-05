@@ -44,6 +44,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Force carousels to start at the first item (Rightmost in RTL) on load
+    window.addEventListener('load', () => {
+        const carousels = document.querySelectorAll('.gallery-grid, .reviews-grid');
+        carousels.forEach(c => {
+            // Chrome/Firefox use 0 or negative for RTL, Safari uses positive.
+            // A safe approach:
+            c.scrollLeft = 9999;
+            if (c.scrollLeft === 0) {
+                // If it didn't change, it means 0 is the max (Chrome/Firefox RTL)
+                c.scrollLeft = 0;
+            }
+        });
+    });
+
     // ========== LEGAL MODALS ==========
     const legalTriggers = document.querySelectorAll('.legal-trigger');
     const modal = document.getElementById('legalModal');
@@ -199,6 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Toggle active class on item
             const isActive = item.classList.toggle('active');
+            trigger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
             
             // Adjust panel height for smooth transition
             if (isActive) {
@@ -211,6 +226,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.faq-item-premium').forEach(otherItem => {
                 if (otherItem !== item) {
                     otherItem.classList.remove('active');
+                    const otherTrigger = otherItem.querySelector('.faq-trigger-premium');
+                    if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
                     if (otherItem.querySelector('.faq-panel-premium')) {
                         otherItem.querySelector('.faq-panel-premium').style.maxHeight = null;
                     }
@@ -218,5 +235,178 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // ========== GALLERY LIGHTBOX ==========
+    const galleryImages = [
+        { src: 'works/work1.webp', alt: 'צילום קו ביוב לאיתור סתימה ושורשים בצנרת' },
+        { src: 'works/work3.webp', alt: 'בדיקת צנרת ביוב עם מצלמה לאיתור תקלה' },
+        { src: 'works/work4.webp', alt: 'איתור שורשים בצנרת ביוב' },
+        { src: 'works/work5.webp', alt: 'פתיחת סתימה בביוב באמצעות ציוד מקצועי' },
+        // New WebP images
+        { src: 'works-new/work-new-01.webp', alt: 'צילום קו ביוב בשטח - א.ל אינסטלציה 1' },
+        { src: 'works-new/work-new-02.webp', alt: 'פתיחת סתימה בביוב באמצעות ציוד מקצועי - א.ל אינסטלציה 2' },
+        { src: 'works-new/work-new-03.webp', alt: 'בדיקת צנרת ביוב עם מצלמה לאיתור תקלה - א.ל אינסטלציה 3' },
+        { src: 'works-new/work-new-04.webp', alt: 'עבודת ביובית ופתיחת סתימה בשטח - א.ל אינסטלציה 4' },
+        { src: 'works-new/work-new-05.webp', alt: 'איתור שורשים בצנרת ביוב - א.ל אינסטלציה 5' },
+        { src: 'works-new/work-new-06.webp', alt: 'צילום צנרת ביוב לאבחון תקלה - א.ל אינסטלציה 6' },
+        { src: 'works-new/work-new-07.webp', alt: 'שטיפת קו ביוב ופתיחת סתימה - א.ל אינסטלציה 7' },
+        { src: 'works-new/work-new-08.webp', alt: 'בדיקת מערכת ביוב בשטח עם מצלמה - א.ל אינסטלציה 8' },
+        { src: 'works-new/work-new-09.webp', alt: 'עבודת אינסטלציה וביובית ללקוח - א.ל אינסטלציה 9' },
+        { src: 'works-new/work-new-10.webp', alt: 'פתיחת סתימה מורכבת בצנרת ביוב - א.ל אינסטלציה 10' },
+        { src: 'works-new/work-new-11.webp', alt: 'צילום קווי ביוב לפני תיקון תקלה - א.ל אינסטלציה 11' },
+        { src: 'works-new/work-new-12.webp', alt: 'שירות ביובית וצילום קו ביוב בשטח - א.ל אינסטלציה 12' }
+    ];
+
+    let currentGalleryIndex = 0;
+    const lightboxModal = document.getElementById('galleryLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeLightboxBtn = document.getElementById('closeLightboxBtn');
+    const prevLightboxBtn = document.getElementById('prevLightboxBtn');
+    const nextLightboxBtn = document.getElementById('nextLightboxBtn');
+    const openGalleryBtn = document.getElementById('openGalleryBtn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    function openLightbox(index) {
+        if (!lightboxModal) return;
+        currentGalleryIndex = index;
+        updateLightboxImage();
+        lightboxModal.classList.add('active');
+        lightboxModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        if (closeLightboxBtn) closeLightboxBtn.focus();
+    }
+
+    function closeLightbox() {
+        if (!lightboxModal) return;
+        lightboxModal.classList.remove('active');
+        lightboxModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (openGalleryBtn) openGalleryBtn.focus();
+    }
+
+    function updateLightboxImage() {
+        if (currentGalleryIndex < 0) currentGalleryIndex = galleryImages.length - 1;
+        if (currentGalleryIndex >= galleryImages.length) currentGalleryIndex = 0;
+        
+        if (lightboxImg) {
+            lightboxImg.src = galleryImages[currentGalleryIndex].src;
+            lightboxImg.alt = galleryImages[currentGalleryIndex].alt;
+        }
+    }
+
+    function nextImage(e) {
+        if (e) e.stopPropagation();
+        currentGalleryIndex++;
+        updateLightboxImage();
+    }
+
+    function prevImage(e) {
+        if (e) e.stopPropagation();
+        currentGalleryIndex--;
+        updateLightboxImage();
+    }
+
+    if (lightboxModal) {
+        if (closeLightboxBtn) closeLightboxBtn.addEventListener('click', closeLightbox);
+        if (nextLightboxBtn) nextLightboxBtn.addEventListener('click', nextImage);
+        if (prevLightboxBtn) prevLightboxBtn.addEventListener('click', prevImage);
+        
+        // Close on outside click
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal || (e.target.classList && e.target.classList.contains('lightbox-content-wrapper'))) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightboxModal.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+
+        // Swipe support for mobile lightbox
+        let touchstartX = 0;
+        let touchendX = 0;
+        
+        lightboxModal.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        lightboxModal.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+            if (touchendX < touchstartX - 50) nextImage();
+            if (touchendX > touchstartX + 50) prevImage();
+        }
+    }
+
+    // Open from specific grid image
+    if (galleryItems) {
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const index = parseInt(item.getAttribute('data-index'));
+                if (!isNaN(index)) openLightbox(index);
+            });
+            
+            // Accessibility for keyboard
+            item.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const index = parseInt(item.getAttribute('data-index'));
+                    if (!isNaN(index)) openLightbox(index);
+                }
+            });
+        });
+    }
+
+    // Expansion logic for Gallery Grid (Desktop)
+    if (openGalleryBtn) {
+        const mainGalleryGrid = document.getElementById('mainGalleryGrid');
+        openGalleryBtn.addEventListener('click', () => {
+            const isExpanded = mainGalleryGrid.classList.toggle('expanded');
+            
+            if (isExpanded) {
+                openGalleryBtn.textContent = 'הסתר עבודות מהשטח';
+            } else {
+                openGalleryBtn.textContent = 'לצפייה בעוד עבודות מהשטח';
+                // Scroll back to top of gallery section if hidden
+                const gallerySection = document.getElementById('gallery');
+                if (gallerySection) {
+                    gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
+    }
+
+    // ========== REVIEWS SECTION EXPANSION ==========
+    const showMoreReviewsBtn = document.getElementById('showMoreReviewsBtn');
+    const reviewsGrid = document.getElementById('reviewsGrid');
+
+    if (showMoreReviewsBtn && reviewsGrid) {
+        showMoreReviewsBtn.addEventListener('click', () => {
+            const isExpanded = reviewsGrid.classList.toggle('expanded');
+            showMoreReviewsBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+            
+            if (isExpanded) {
+                showMoreReviewsBtn.textContent = 'הסתר ביקורות';
+                // Optional: scroll slightly to show new items smoothly
+                setTimeout(() => {
+                    window.scrollBy({ top: 200, behavior: 'smooth' });
+                }, 100);
+            } else {
+                showMoreReviewsBtn.textContent = 'לצפייה בעוד ביקורות';
+                // Scroll back to top of reviews section
+                const reviewsSection = document.getElementById('reviews');
+                if (reviewsSection) {
+                    reviewsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
+    }
 
 });
