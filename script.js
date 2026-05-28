@@ -272,6 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { src: 'works-new/work-new-12.webp', alt: 'שירות ביובית וצילום קו ביוב בשטח' }
     ];
 
+    let activeLightboxImages = galleryImages;
     let currentGalleryIndex = 0;
     let singleLightboxMode = false;
     let lightboxScrollY = 0;
@@ -305,15 +306,23 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             event.stopPropagation();
         }
-        openSingleLightbox(item.currentSrc || item.src, item.alt);
+        const serviceGalleryItems = Array.from(item.closest('.service-media-strip')?.querySelectorAll('.service-gallery-item') || [item]);
+        const galleryIndex = Math.max(serviceGalleryItems.indexOf(item), 0);
+        const serviceImages = serviceGalleryItems.map(image => ({
+            src: image.currentSrc || image.src,
+            alt: image.alt || 'תמונה מוגדלת'
+        }));
+
+        openLightbox(galleryIndex, serviceImages);
     }
 
-    function openLightbox(index) {
+    function openLightbox(index, images = galleryImages) {
         if (!lightboxModal) return;
+        activeLightboxImages = images.length ? images : galleryImages;
         singleLightboxMode = false;
         currentGalleryIndex = index;
         updateLightboxImage();
-        lightboxModal.classList.remove('single-image');
+        lightboxModal.classList.toggle('single-image', activeLightboxImages.length <= 1);
         lightboxModal.classList.add('active');
         lightboxModal.setAttribute('aria-hidden', 'false');
         lockLightboxScroll();
@@ -322,6 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function openSingleLightbox(src, alt) {
         if (!lightboxModal || !lightboxImg) return;
+        activeLightboxImages = [{ src, alt: alt || 'תמונה מוגדלת' }];
         singleLightboxMode = true;
         lightboxImg.src = src;
         lightboxImg.alt = alt || 'תמונה מוגדלת';
@@ -342,12 +352,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateLightboxImage() {
-        if (currentGalleryIndex < 0) currentGalleryIndex = galleryImages.length - 1;
-        if (currentGalleryIndex >= galleryImages.length) currentGalleryIndex = 0;
+        if (currentGalleryIndex < 0) currentGalleryIndex = activeLightboxImages.length - 1;
+        if (currentGalleryIndex >= activeLightboxImages.length) currentGalleryIndex = 0;
         
         if (lightboxImg) {
-            lightboxImg.src = galleryImages[currentGalleryIndex].src;
-            lightboxImg.alt = galleryImages[currentGalleryIndex].alt;
+            lightboxImg.src = activeLightboxImages[currentGalleryIndex].src;
+            lightboxImg.alt = activeLightboxImages[currentGalleryIndex].alt;
         }
     }
 
