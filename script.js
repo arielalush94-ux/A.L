@@ -185,9 +185,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ========== SCROLL REVEAL ANIMATIONS ==========
-    const revealElements = document.querySelectorAll('.reveal');
+    const serviceRevealElements = document.querySelectorAll('#services .service-box.reveal');
+    const revealElements = document.querySelectorAll('.reveal:not(#services .service-box)');
     
     if ('IntersectionObserver' in window) {
+        const serviceRevealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    serviceRevealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.05,
+            rootMargin: '0px 0px 120px 0px'
+        });
+
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -200,8 +213,10 @@ document.addEventListener('DOMContentLoaded', () => {
             rootMargin: '0px 0px -50px 0px'
         });
 
+        serviceRevealElements.forEach(el => serviceRevealObserver.observe(el));
         revealElements.forEach(el => revealObserver.observe(el));
     } else {
+        serviceRevealElements.forEach(el => el.classList.add('active'));
         revealElements.forEach(el => el.classList.add('active'));
     }
 
@@ -243,44 +258,86 @@ document.addEventListener('DOMContentLoaded', () => {
         { src: 'works/work4.webp', alt: 'איתור שורשים בצנרת ביוב' },
         { src: 'works/work5.webp', alt: 'פתיחת סתימה בביוב באמצעות ציוד מקצועי' },
         // New WebP images
-        { src: 'works-new/work-new-01.webp', alt: 'צילום קו ביוב בשטח - א.ל אינסטלציה 1' },
-        { src: 'works-new/work-new-02.webp', alt: 'פתיחת סתימה בביוב באמצעות ציוד מקצועי - א.ל אינסטלציה 2' },
-        { src: 'works-new/work-new-03.webp', alt: 'בדיקת צנרת ביוב עם מצלמה לאיתור תקלה - א.ל אינסטלציה 3' },
-        { src: 'works-new/work-new-04.webp', alt: 'עבודת ביובית ופתיחת סתימה בשטח - א.ל אינסטלציה 4' },
-        { src: 'works-new/work-new-05.webp', alt: 'איתור שורשים בצנרת ביוב - א.ל אינסטלציה 5' },
-        { src: 'works-new/work-new-06.webp', alt: 'צילום צנרת ביוב לאבחון תקלה - א.ל אינסטלציה 6' },
-        { src: 'works-new/work-new-07.webp', alt: 'שטיפת קו ביוב ופתיחת סתימה - א.ל אינסטלציה 7' },
-        { src: 'works-new/work-new-08.webp', alt: 'בדיקת מערכת ביוב בשטח עם מצלמה - א.ל אינסטלציה 8' },
-        { src: 'works-new/work-new-09.webp', alt: 'עבודת אינסטלציה וביובית ללקוח - א.ל אינסטלציה 9' },
-        { src: 'works-new/work-new-10.webp', alt: 'פתיחת סתימה מורכבת בצנרת ביוב - א.ל אינסטלציה 10' },
-        { src: 'works-new/work-new-11.webp', alt: 'צילום קווי ביוב לפני תיקון תקלה - א.ל אינסטלציה 11' },
-        { src: 'works-new/work-new-12.webp', alt: 'שירות ביובית וצילום קו ביוב בשטח - א.ל אינסטלציה 12' }
+        { src: 'works-new/work-new-01.webp', alt: 'צילום קו ביוב בשטח' },
+        { src: 'works-new/work-new-02.webp', alt: 'פתיחת סתימה בביוב באמצעות ציוד מקצועי' },
+        { src: 'works-new/work-new-03.webp', alt: 'בדיקת צנרת ביוב עם מצלמה לאיתור תקלה' },
+        { src: 'works-new/work-new-04.webp', alt: 'עבודת ביובית ופתיחת סתימה בשטח' },
+        { src: 'works-new/work-new-05.webp', alt: 'איתור שורשים בצנרת ביוב' },
+        { src: 'works-new/work-new-06.webp', alt: 'צילום צנרת ביוב לאבחון תקלה' },
+        { src: 'works-new/work-new-07.webp', alt: 'שטיפת קו ביוב ופתיחת סתימה' },
+        { src: 'works-new/work-new-08.webp', alt: 'בדיקת מערכת ביוב בשטח עם מצלמה' },
+        { src: 'works-new/work-new-09.webp', alt: 'עבודת ביובית ללקוח' },
+        { src: 'works-new/work-new-10.webp', alt: 'פתיחת סתימה מורכבת בצנרת ביוב' },
+        { src: 'works-new/work-new-11.webp', alt: 'צילום קווי ביוב לפני תיקון תקלה' },
+        { src: 'works-new/work-new-12.webp', alt: 'שירות ביובית וצילום קו ביוב בשטח' }
     ];
 
     let currentGalleryIndex = 0;
+    let singleLightboxMode = false;
+    let lightboxScrollY = 0;
     const lightboxModal = document.getElementById('galleryLightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const closeLightboxBtn = document.getElementById('closeLightboxBtn');
     const prevLightboxBtn = document.getElementById('prevLightboxBtn');
     const nextLightboxBtn = document.getElementById('nextLightboxBtn');
     const openGalleryBtn = document.getElementById('openGalleryBtn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
+    const galleryItems = document.querySelectorAll('.gallery-item, .service-gallery-item');
+
+    function lockLightboxScroll() {
+        if (document.body.classList.contains('lightbox-open')) return;
+        lightboxScrollY = window.scrollY || window.pageYOffset || 0;
+        document.body.style.top = `-${lightboxScrollY}px`;
+        document.body.classList.add('lightbox-open');
+    }
+
+    function unlockLightboxScroll() {
+        if (!document.body.classList.contains('lightbox-open')) return;
+        const previousScrollBehavior = document.documentElement.style.scrollBehavior;
+        document.documentElement.style.scrollBehavior = 'auto';
+        document.body.classList.remove('lightbox-open');
+        document.body.style.top = '';
+        window.scrollTo(0, lightboxScrollY);
+        document.documentElement.style.scrollBehavior = previousScrollBehavior;
+    }
+
+    function openServiceGalleryItem(item, event) {
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        openSingleLightbox(item.currentSrc || item.src, item.alt);
+    }
 
     function openLightbox(index) {
         if (!lightboxModal) return;
+        singleLightboxMode = false;
         currentGalleryIndex = index;
         updateLightboxImage();
+        lightboxModal.classList.remove('single-image');
         lightboxModal.classList.add('active');
         lightboxModal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
+        lockLightboxScroll();
+        if (closeLightboxBtn) closeLightboxBtn.focus();
+    }
+
+    function openSingleLightbox(src, alt) {
+        if (!lightboxModal || !lightboxImg) return;
+        singleLightboxMode = true;
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || 'תמונה מוגדלת';
+        lightboxModal.classList.add('single-image');
+        lightboxModal.classList.add('active');
+        lightboxModal.setAttribute('aria-hidden', 'false');
+        lockLightboxScroll();
         if (closeLightboxBtn) closeLightboxBtn.focus();
     }
 
     function closeLightbox() {
         if (!lightboxModal) return;
         lightboxModal.classList.remove('active');
+        lightboxModal.classList.remove('single-image');
         lightboxModal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
+        unlockLightboxScroll();
         if (openGalleryBtn) openGalleryBtn.focus();
     }
 
@@ -296,12 +353,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function nextImage(e) {
         if (e) e.stopPropagation();
+        if (singleLightboxMode) return;
         currentGalleryIndex++;
         updateLightboxImage();
     }
 
     function prevImage(e) {
         if (e) e.stopPropagation();
+        if (singleLightboxMode) return;
         currentGalleryIndex--;
         updateLightboxImage();
     }
@@ -345,11 +404,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    document.addEventListener('click', (e) => {
+        const serviceGalleryItem = e.target.closest('.service-gallery-item');
+        if (!serviceGalleryItem) return;
+        openServiceGalleryItem(serviceGalleryItem, e);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        const serviceGalleryItem = e.target.closest('.service-gallery-item');
+        if (!serviceGalleryItem) return;
+        openServiceGalleryItem(serviceGalleryItem, e);
+    });
+
     // Open from specific grid image
     if (galleryItems) {
         galleryItems.forEach(item => {
             item.addEventListener('click', () => {
-                if (window.innerWidth <= 768) return; // Disable on mobile
+                if (item.classList.contains('service-gallery-item')) {
+                    return;
+                }
+                if (window.innerWidth <= 768) return; // Disable old gallery on mobile
                 const index = parseInt(item.getAttribute('data-index'));
                 if (!isNaN(index)) openLightbox(index);
             });
@@ -357,8 +432,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Accessibility for keyboard
             item.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
-                    if (window.innerWidth <= 768) return; // Disable on mobile
                     e.preventDefault();
+                    if (item.classList.contains('service-gallery-item')) {
+                        return;
+                    }
+                    if (window.innerWidth <= 768) return; // Disable old gallery on mobile
                     const index = parseInt(item.getAttribute('data-index'));
                     if (!isNaN(index)) openLightbox(index);
                 }
