@@ -1287,13 +1287,14 @@ html.highlight-links a {
     margin-bottom: 24px; /* Space for the link */
 }
 
-.service-media-strip {
+#services .service-media-strip {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     gap: 12px;
     overflow-x: auto;
     overflow-y: hidden;
+    width: 100%;
     padding: 4px 0 16px;
     margin: 0 0 18px;
     max-width: 100%;
@@ -1302,16 +1303,18 @@ html.highlight-links a {
     overscroll-behavior-inline: contain;
     -webkit-overflow-scrolling: touch;
     align-items: flex-start;
+    box-sizing: border-box;
 }
 
-.service-media-strip img,
-.service-media-strip .service-gallery-item {
+#services .service-media-strip > .service-gallery-item {
     flex: 0 0 190px;
     width: 190px;
     min-width: 190px;
     max-width: 190px;
     height: 143px;
     display: block;
+    box-sizing: border-box;
+    float: none;
     object-fit: cover;
     border-radius: var(--radius-md);
     border: 1px solid #e2e8f0;
@@ -1319,23 +1322,23 @@ html.highlight-links a {
     transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
-.service-media-strip img:hover,
-.service-media-strip img:focus {
+#services .service-media-strip > .service-gallery-item:hover,
+#services .service-media-strip > .service-gallery-item:focus {
     border-color: var(--primary-light);
     transform: translateY(-2px);
     outline: none;
 }
 
-.service-media-strip::-webkit-scrollbar {
+#services .service-media-strip::-webkit-scrollbar {
     height: 4px;
 }
 
-.service-media-strip::-webkit-scrollbar-thumb {
+#services .service-media-strip::-webkit-scrollbar-thumb {
     background: var(--primary);
     border-radius: 10px;
 }
 
-.service-media-strip::-webkit-scrollbar-track {
+#services .service-media-strip::-webkit-scrollbar-track {
     background: #e2e8f0;
 }
 
@@ -2041,19 +2044,19 @@ html.highlight-links a {
         padding: 7px 12px;
     }
 
-    .service-media-strip img,
-    .service-media-strip .service-gallery-item {
-        flex: 0 0 min(74vw, 280px);
-        width: min(74vw, 280px);
-        min-width: min(74vw, 280px);
-        max-width: min(74vw, 280px);
+    #services .service-media-strip > .service-gallery-item {
+        flex: 0 0 74vw;
+        width: 74vw;
+        min-width: 220px;
+        max-width: 280px;
         height: 210px;
     }
 
-    .service-media-strip {
+    #services .service-media-strip {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
+        width: 100%;
         height: auto;
         max-width: 100%;
         min-width: 0;
@@ -2063,6 +2066,7 @@ html.highlight-links a {
         overflow-y: hidden;
         overscroll-behavior-inline: contain;
         -webkit-overflow-scrolling: touch;
+        box-sizing: border-box;
     }
 }
 
