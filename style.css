@@ -1556,12 +1556,12 @@ html.highlight-links a {
     }
     
     .hero {
-        padding-top: calc(var(--nav-height) - 12px); /* Tighter top */
+        padding-top: calc(var(--nav-height) + 4px); /* Tighter top without touching the header */
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        padding-bottom: 10px; /* Tighter bottom */
+        justify-content: flex-start;
+        padding-bottom: 76px; /* Keeps bottom chips above floating buttons */
     }
     
     /* Optimization for Marketing & Rapid Scanning on Mobile */
