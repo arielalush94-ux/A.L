@@ -1556,7 +1556,7 @@ html.highlight-links a {
     }
     
     .hero {
-        padding-top: calc(var(--nav-height) + 0px); /* Tighter top */
+        padding-top: calc(var(--nav-height) - 12px); /* Tighter top */
         min-height: 100vh;
         display: flex;
         flex-direction: column;
