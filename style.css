@@ -1302,6 +1302,8 @@ html.highlight-links a {
     min-height: 164px;
     overscroll-behavior-inline: contain;
     -webkit-overflow-scrolling: touch;
+    scrollbar-color: var(--primary) #dbeafe;
+    scrollbar-width: thin;
     align-items: flex-start;
     box-sizing: border-box;
 }
@@ -1339,7 +1341,7 @@ html.highlight-links a {
 }
 
 #services .service-media-strip::-webkit-scrollbar-track {
-    background: #e2e8f0;
+    background: #dbeafe;
 }
 
 .service-link {
