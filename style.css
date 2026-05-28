@@ -1289,8 +1289,11 @@ html.highlight-links a {
 
 .service-media-strip {
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     gap: 12px;
     overflow-x: auto;
+    overflow-y: hidden;
     padding: 4px 0 16px;
     margin: 0 0 18px;
     max-width: 100%;
@@ -1301,10 +1304,14 @@ html.highlight-links a {
     align-items: flex-start;
 }
 
-.service-media-strip img {
+.service-media-strip img,
+.service-media-strip .service-gallery-item {
     flex: 0 0 190px;
     width: 190px;
+    min-width: 190px;
+    max-width: 190px;
     height: 143px;
+    display: block;
     object-fit: cover;
     border-radius: var(--radius-md);
     border: 1px solid #e2e8f0;
@@ -2034,20 +2041,28 @@ html.highlight-links a {
         padding: 7px 12px;
     }
 
-    .service-media-strip img {
-        flex-basis: min(100%, 280px);
-        width: min(100%, 280px);
+    .service-media-strip img,
+    .service-media-strip .service-gallery-item {
+        flex: 0 0 min(74vw, 280px);
+        width: min(74vw, 280px);
+        min-width: min(74vw, 280px);
+        max-width: min(74vw, 280px);
         height: 210px;
     }
 
     .service-media-strip {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         height: auto;
         max-width: 100%;
         min-width: 0;
         min-height: 232px;
         margin-bottom: 16px;
         overflow-x: auto;
-        overflow-y: visible;
+        overflow-y: hidden;
+        overscroll-behavior-inline: contain;
+        -webkit-overflow-scrolling: touch;
     }
 }
 
