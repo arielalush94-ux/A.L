@@ -2343,3 +2343,24 @@ html.highlight-links a {
     display: block;
     object-fit: contain;
 }
+
+@media (max-width: 768px) {
+    .hero {
+        height: auto;
+        min-height: auto;
+        max-height: none;
+        padding-top: calc(var(--nav-height) + 18px);
+        padding-bottom: calc(96px + env(safe-area-inset-bottom));
+        justify-content: flex-start;
+        overflow: visible;
+    }
+
+    .hero .hero-content {
+        margin-top: -22px;
+    }
+
+    .hero .hero-trust-badges {
+        margin-top: 10px;
+        margin-bottom: 14px;
+    }
+}
